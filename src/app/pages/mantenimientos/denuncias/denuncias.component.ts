@@ -15,6 +15,7 @@ export class DenunciasComponent implements OnInit {
   public entrada: number = 10;
   public sort: number = -1;
   public cargando: boolean = true;
+  public estado : string = "todos";
 
   constructor( private denunciaService: DenunciaService,
     private busquedasService: BusquedasService ) { }
@@ -25,7 +26,7 @@ export class DenunciasComponent implements OnInit {
   }
   cargarDenuncias() {
     this.cargando = true;
-    this.denunciaService.cargarDenuncias( this.desde, this.entrada, this.sort)
+    this.denunciaService.cargarDenuncias( this.desde, this.entrada, this.estado, this.sort)
       .subscribe( ({ total, denuncias }) => {
         console.log(denuncias);
 

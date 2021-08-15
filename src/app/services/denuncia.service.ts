@@ -40,14 +40,14 @@ export class DenunciaService {
 
   }
 
-  cargarDenuncias( desde: number = 0, entrada:number = 10, sort: number= 1) { 
-
-    const url = `${ base_url }/denuncias?desde=${ desde }&entrada=${ entrada }&sort=${ sort }`;
+  cargarDenuncias( desde: number = 0, entrada:number = 10, estado : string, sort: number= 1) { 
+    const query = this.generarQuery(['estado'],[estado]);
+    const url = `${ base_url }/denuncias?desde=${ desde }&entrada=${ entrada }${ query }&sort=${ sort }`;
     return this.http.get<CargarDenuncia>( url, this.headers )
             .pipe(
               map( resp => {
                 const denuncias = resp.denuncias.map(
-                  denuncia => new Denuncia(denuncia.oficial, denuncia.civil, denuncia.fecha, denuncia.calificacion, denuncia.estado )
+                  denuncia => new Denuncia(denuncia.observacion, denuncia.tipo_denuncia, denuncia.fecha, denuncia.estado, denuncia.calificacion,)
                   );
                   console.log(this.denuncia);
                   console.log(resp);
