@@ -1,0 +1,86 @@
+<div class="row animated fadeIn fast">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <input type="text" class="form-control" placeholder="Buscar denuncias..." (keyup)="buscar( txtTermino.value )" #txtTermino/>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row animated fadeIn fast" *ngIf="cargando">
+    <div class="col-12">
+
+        <div class="alert alert-info text-center">
+            <h4 class="alert-heading">Cargando</h4>
+            <i class="fa fa-spin fa-refresh fa-2x"></i>
+            <p class="mb-0">Por favor espere</p>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="row animated fadeIn fast" *ngIf="!cargando">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-8">
+                        <h4 class="card-title">Mostrando {{desde + 1}} hasta {{desde + denuncias.length}} de {{ totalDenuncias }} Denuncias</h4>
+                        <h6 class="card-subtitle">Denuncias Registradas</h6>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Civil</th>
+                                <th>Oficial</th>
+                                <th class="w100">Fecha</th>
+                                <th class="w110">Calificacion</th>
+                                <th class="w100">Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let denuncia of denuncias; index as idx">
+                                <td>{{desde + idx + 1}}</td>
+                                <td>{{ denuncia.oficial }}</td>
+                                <td>{{ denuncia.civil }}</td>
+                                <td>
+                                    <span *ngIf="denuncia.fecha" class="label label-info"> {{denuncia.fecha  | date: 'dd/MM/yyyy'}}</span>
+                                </td> 
+                                <td>{{ denuncia.estado }}</td>
+                                <td>{{ denuncia.calificacion }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row" *ngIf="txtTermino.value.length === 0">
+                    <div class="col-8">
+                        <button (click)="cambiarPagina(-entrada)" class="btn btn-secondary">Anteriores</button> &nbsp;
+                        <button (click)="cambiarPagina(entrada)" class="btn btn-secondary">Siguientes</button>
+                    </div>
+                    <div class="col">
+                        <div class="text-right">
+                            Mostrar
+                            <select class="form-control w100" [(ngModel)]="entrada" (change)=" cargarDenuncias() ">
+                            <option [ngValue]=5>5</option>
+                            <option [ngValue]=10>10</option>
+                            <option [ngValue]=25>25</option>
+                            <option [ngValue]=25>25</option>
+                            <option [ngValue]=25>25</option>
+                          </select> entradas
+                        </div>*/
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

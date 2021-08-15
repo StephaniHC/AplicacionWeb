@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
-import { Grafica1Component } from './grafica1/grafica1.component';
+import { Grafica1Component } from './grafica1/grafica1.component'; 
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
@@ -20,14 +20,15 @@ import { EstudiosComponent } from './mantenimientos/estudios/estudios.component'
 import { EventosComponent } from './mantenimientos/eventos/eventos.component';
 import { EventoComponent } from './mantenimientos/eventos/evento.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
-import { AdminGuard } from '../guards/admin.guard';
+import { AdminGuard } from '../guards/admin.guard'; 
+import { DenunciasComponent } from './mantenimientos/denuncias/denuncias.component';
 
 
 const childRoutes: Routes = [
-  { path: '', component: DashboardComponent, data: { titulo: 'Dashboard' } },
+  { path: '', component: DashboardComponent, data: { titulo: 'dashboard' } },
   { path: 'account-settings', component: AccountSettingsComponent, data: { titulo: 'Ajustes de cuenta' }},
   { path: 'buscar/:termino', component: BusquedaComponent, data: { titulo: 'Busquedas' }},
-  { path: 'grafica1', component: Grafica1Component, data: { titulo: 'Gráfica #1' }},
+  { path: 'grafica1', component: Grafica1Component, data: { titulo: 'Reporte' }}, 
   { path: 'perfil', component: PerfilComponent, data: { titulo: 'Perfil de usuario' }},
   { path: 'progress', component: ProgressComponent, data: { titulo: 'ProgressBar' }},
   { path: 'promesas', component: PromesasComponent, data: { titulo: 'Promesas' }},
@@ -44,6 +45,7 @@ const childRoutes: Routes = [
 
   // Rutas de Admin
   { path: 'usuarios', canActivate: [ AdminGuard ], component: UsuariosComponent, data: { titulo: 'Matenimiento de Usuarios' }},
+  { path: 'denuncias', canActivate: [ AdminGuard ], component: DenunciasComponent, data: { titulo: 'Matenimiento de Denuncia' }},
 ]
 
 

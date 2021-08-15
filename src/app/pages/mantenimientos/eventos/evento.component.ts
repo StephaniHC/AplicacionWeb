@@ -17,6 +17,7 @@ import { BusquedasService } from 'src/app/services/busquedas.service';
 import "../../../../assets/plugins/dropzone-master/dist/dropzone.js";
 import { FileUploadService } from 'src/app/services/file-upload.service';
 import { identifierModuleUrl } from '@angular/compiler';
+import { DenunciaService } from '../../../services/denuncia.service';
 
 declare var iniciar: any;
 

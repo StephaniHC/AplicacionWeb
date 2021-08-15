@@ -7,6 +7,7 @@ import { Usuario } from '../models/usuario.model';
 
 import { Fotografo } from '../models/fotografo.model';
 import { Evento } from '../models/evento.model';
+import { Denuncia } from '../models/denuncia.model';
 
 const base_url = environment.base_url;
 
@@ -45,6 +46,13 @@ export class BusquedasService {
     return resultados;
   }
 
+  private transformarDenuncia( resultados: any[] ): Denuncia[] {
+
+    return resultados.map(
+      denuncia => new Denuncia(denuncia.oficial, denuncia.civil, denuncia.fecha, denuncia.calificacion, denuncia.estado )
+    );
+  }
+
   busquedaGlobal( termino: string ) {
 
     const url = `${ base_url }/todo/${ termino }`;
@@ -54,7 +62,7 @@ export class BusquedasService {
 
 
   buscar(
-      tipo: 'usuarios'|'medicos'|'hospitales'|'fotografos'|'estudios'|'eventos',
+      tipo: 'usuarios'|'medicos'|'hospitales'|'fotografos'|'estudios'|'eventos'|'denuncia',
       termino: string
     ) {
 
@@ -73,6 +81,9 @@ export class BusquedasService {
 
                   case 'eventos':
                      return this.transformarEventos( resp.resultados )
+
+                  case 'denuncia':
+                  return this.transformarDenuncia( resp.resultados )
                   default:
                     return [];
                 }
