@@ -35,6 +35,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { DenunciasComponent } from './mantenimientos/denuncias/denuncias.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     RxjsComponent,
     PerfilComponent,
     UsuariosComponent,
+    DenunciasComponent,
     RegisterOficialComponent,
     // HospitalesComponent,
     // MedicosComponent,

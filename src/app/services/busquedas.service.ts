@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 
 import { Usuario } from '../models/usuario.model';
 
+import { Denuncia } from '../models/denuncia.model';
 
 const base_url = environment.base_url;
 
@@ -37,6 +38,13 @@ export class BusquedasService {
 
 
 
+  private transformarDenuncia( resultados: any[] ): Denuncia[] {
+
+    return resultados.map(
+      denuncia => new Denuncia(denuncia.oficial, denuncia.civil, denuncia.fecha, denuncia.calificacion, denuncia.estado )
+    );
+  }
+
   busquedaGlobal( termino: string ) {
 
     const url = `${ base_url }/todo/${ termino }`;
@@ -46,7 +54,7 @@ export class BusquedasService {
 
 
   buscar(
-      tipo: 'usuarios'|'medicos'|'hospitales'|'fotografos'|'estudios'|'eventos',
+      tipo: 'usuarios'|'medicos'|'hospitales'|'fotografos'|'estudios'|'eventos'|'denuncia',
       termino: string
     ) {
 
@@ -58,6 +66,8 @@ export class BusquedasService {
                 switch ( tipo ) {
                   case 'usuarios':
                     return this.transformarUsuarios( resp.resultados )
+                  case 'denuncia':
+                  return this.transformarDenuncia( resp.resultados )
                   default:
                     return [];
                 }

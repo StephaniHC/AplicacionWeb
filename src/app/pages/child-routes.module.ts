@@ -14,14 +14,15 @@ import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component'
 
 import { BusquedaComponent } from './busqueda/busqueda.component';
 import { AdminGuard } from '../guards/admin.guard';
+import { DenunciasComponent } from './mantenimientos/denuncias/denuncias.component';
 import { RegisterOficialComponent } from './mantenimientos/usuarios/register_oficial.component';
 
 
 const childRoutes: Routes = [
-  { path: '', component: DashboardComponent, data: { titulo: 'Dashboard' } },
+  { path: '', component: DashboardComponent, data: { titulo: 'dashboard' } },
   { path: 'account-settings', component: AccountSettingsComponent, data: { titulo: 'Ajustes de cuenta' }},
   { path: 'buscar/:termino', component: BusquedaComponent, data: { titulo: 'Busquedas' }},
-  { path: 'grafica1', component: Grafica1Component, data: { titulo: 'Gráfica #1' }},
+  { path: 'grafica1', component: Grafica1Component, data: { titulo: 'Reporte' }},
   { path: 'perfil', component: PerfilComponent, data: { titulo: 'Perfil de usuario' }},
   { path: 'progress', component: ProgressComponent, data: { titulo: 'ProgressBar' }},
   { path: 'promesas', component: PromesasComponent, data: { titulo: 'Promesas' }},
@@ -31,6 +32,7 @@ const childRoutes: Routes = [
 
   // Rutas de Admin
   { path: 'usuarios', canActivate: [ AdminGuard ], component: UsuariosComponent, data: { titulo: 'Matenimiento de Usuarios' }},
+  { path: 'denuncias', canActivate: [ AdminGuard ], component: DenunciasComponent, data: { titulo: 'Matenimiento de Denuncia' }},
   { path: 'oficial', canActivate: [ AdminGuard ], component: RegisterOficialComponent, data: { titulo: 'Manteniniento de Ususarios' }},
 ]
 
