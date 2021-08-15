@@ -1,0 +1,134 @@
+<!-- Copyright 2020 Google LLC. All Rights Reserved.
+      Use of this source code is governed by an MIT-style license that
+      can be found in the LICENSE file at http://angular.io/license -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row ">
+                    <div class="col-4">
+
+                        <button [routerLink]="['/dashboard','usuarios']" class=" btn btn-primary waves-effect waves-light">atras</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <mat-horizontal-stepper [linear]=isLinear #stepper>
+                        <mat-step [stepControl]="registerFormUsuario" #step>
+                            <ng-template matStepLabel>Perfil de usuario</ng-template>
+                            <form id="loginform" autocomplete="off" [formGroup]="registerFormUsuario" class="form-horizontal form-material">
+                                <div class="row">
+                                    <mat-form-field class="col-md-6">
+                                        <mat-label>Nombres</mat-label>
+                                        <input matInput placeholder="Nombre (s)" formControlName="nombre" required>
+                                    </mat-form-field>
+                                    <mat-form-field class="col-md-6 ">
+                                        <mat-label>Apellidos</mat-label>
+                                        <input matInput placeholder="Apellidos (s)" formControlName="apellido" required>
+                                    </mat-form-field>
+                                    <mat-form-field class="col-md-6">
+                                        <mat-label>Email</mat-label>
+                                        <input matInput placeholder="" formControlName="email" required>
+                                    </mat-form-field>
+
+
+
+
+                                    <mat-form-field class="col-md-6 ">
+                                        <mat-label>Documento Identidad</mat-label>
+                                        <input matInput placeholder="Cedula de identificacion " formControlName="ci" required>
+                                    </mat-form-field>
+                                    <mat-form-field class="col-md-6 ">
+                                        <mat-label>Celular</mat-label>
+                                        <input matInput placeholder="Celular " formControlName="celular" required>
+                                    </mat-form-field>
+
+                                    <mat-form-field class="col-md-6">
+                                        <mat-label>Fecha de Nacimiento</mat-label>
+                                        <input matInput [matDatepicker]="picker" formControlName="fecha_nac" required>
+                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker></mat-datepicker>
+                                    </mat-form-field>
+                                    <mat-form-field class="col-md-6 ">
+                                        <mat-label>Direccion</mat-label>
+                                        <input matInput placeholder="Direccion" formControlName="direccion">
+                                    </mat-form-field>
+                                    <mat-form-field class="col-md-6">
+                                        <mat-label>Role</mat-label>
+                                        <input readonly matInput value="OFICIAL_ROLE" placeholder="Oficial" formControlName="role" required>
+                                    </mat-form-field>
+
+                                </div>
+                                <div class="row ">
+                                    <div class="col text-danger ">
+                                        <p *ngIf="campoNoValido( registerFormUsuario,'nombre') ">* El nombre es obligatorio</p>
+                                        <p *ngIf="campoNoValido(registerFormUsuario ,'apellido') ">* El apellido es obligatorio</p>
+                                        <p *ngIf="campoNoValido( registerFormUsuario,'email') ">* El email es obligatorio y tiene que ser válido</p>
+                                        <p *ngIf="campoNoValido( registerFormUsuario,'ci') ">* La CI es obligatorio</p>
+                                        <p *ngIf="campoNoValido( registerFormUsuario,'celular') ">* El Celular es obligatorio</p>
+                                        <p *ngIf="campoNoValido( registerFormUsuario,'fecha_nac') ">* La fecha de nacimiento es obligatorio</p>
+                                        <p *ngIf="campoNoValido( registerFormUsuario,'role') ">* El rol es obligatorio</p>
+
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row-reverse ">
+                                    <button class="btn btn-color btn-primary" mat-button matStepperNext (click)="test(step.hasError) ">Siguiente</button>
+                                </div>
+                            </form>
+                        </mat-step>
+
+                        <mat-step [stepControl]="registerFormOficial " #step3>
+                            <ng-template matStepLabel>Datos Oficial</ng-template>
+                            <form id="loginform " autocomplete="off " [formGroup]="registerFormOficial " class="form-horizontal form-material ">
+                                <div class="row ">
+                                    <mat-form-field class="col-md-6 ">
+                                        <mat-label>Descripcion</mat-label>
+                                        <input matInput placeholder="Descripcion " formControlName="descripcion" required>
+                                    </mat-form-field>
+                                    <mat-form-field class="col-md-6 ">
+                                        <mat-label>Codigo</mat-label>
+                                        <input matInput placeholder="Codigo" formControlName="codigo" required>
+                                    </mat-form-field>
+                                    <mat-form-field class="col-md-6 ">
+                                        <mat-label>DTM</mat-label>
+                                        <input matInput placeholder="dtm " formControlName="DTM" required>
+                                    </mat-form-field>
+                                    <mat-form-field class="col-md-6 ">
+                                        <mat-label>Estado</mat-label>
+                                        <input readonly matInput placeholder="Estado" formControlName="disponible" required>
+                                    </mat-form-field>
+
+                                    <!-- <ngx-dropzone [maxFileSize]=1 class="col-md-12 " accept="application/pdf" (change)="onSelect($event)">
+                                    <ngx-dropzone-label>Arrastra tu curriculum aqui</ngx-dropzone-label>
+                                    <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                                        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                    </ngx-dropzone-preview>
+                                </ngx-dropzone> -->
+
+                                </div>
+                                <div class="row ">
+                                    <div class="col text-danger ">
+                                        <p *ngIf="campoNoValido( registerFormOficial,'descripcion') ">* La descripcion es obligatorio</p>
+                                        <p *ngIf="campoNoValido( registerFormOficial,'codigo') ">* El codigo es obligatorio</p>
+                                        <p *ngIf="campoNoValido( registerFormOficial,'DTM') ">* El DTM es obligatorio</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row-reverse ">
+                                    <button class="btn btn-color btn-primary" mat-button matStepperNext (click)="crearUsuario(step3.hasError) ">Registrar</button>
+                                    <button class="btn btn-light" mat-button matStepperPrevious>Anterior</button>
+                                </div>
+                            </form>
+                        </mat-step>
+                    </mat-horizontal-stepper>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->

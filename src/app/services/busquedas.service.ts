@@ -5,8 +5,6 @@ import { map } from 'rxjs/operators';
 
 import { Usuario } from '../models/usuario.model';
 
-import { Fotografo } from '../models/fotografo.model';
-import { Evento } from '../models/evento.model';
 
 const base_url = environment.base_url;
 
@@ -38,12 +36,6 @@ export class BusquedasService {
   }
 
 
-  private transformarFotografos( resultados: any[] ): Fotografo[] {
-    return resultados;
-  }
-  private transformarEventos( resultados: any[] ): Evento[] {
-    return resultados;
-  }
 
   busquedaGlobal( termino: string ) {
 
@@ -68,11 +60,6 @@ export class BusquedasService {
                     return this.transformarUsuarios( resp.resultados )
 
 
-                  case 'fotografos':
-                     return this.transformarFotografos( resp.resultados )
-
-                  case 'eventos':
-                     return this.transformarEventos( resp.resultados )
                   default:
                     return [];
                 }

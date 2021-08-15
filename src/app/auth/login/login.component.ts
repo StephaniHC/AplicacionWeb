@@ -30,7 +30,6 @@ export class LoginComponent implements OnInit {
                private ngZone: NgZone ) { }
 
   ngOnInit(): void {
-    this.renderButton();
   }
 
 
@@ -55,27 +54,7 @@ export class LoginComponent implements OnInit {
 
   }
 
-  renderButton() {
-    gapi.signin2.render('my-signin2', {
-      'scope': 'profile email',
-      'width': 240,
-      'height': 50,
-      'longtitle': true,
-      'theme': 'dark',
-    });
 
-    this.startApp();
-
-  }
-
-  async startApp() {
-
-    await this.usuarioService.googleInit();
-    this.auth2 = this.usuarioService.auth2;
-
-    this.attachSignin( document.getElementById('my-signin2') );
-
-  };
 
   attachSignin(element) {
 
