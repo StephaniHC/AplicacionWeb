@@ -20,19 +20,19 @@ export class ImagenPipe implements PipeTransform {
     if(tipo=='eventos'){
       let idEstudio = arg[3];
       if ( !img ) {
-        return `${ base_url }/upload/${tipo}/no-image`;
+        return `${ base_url }/uploads/${tipo}/no-image`;
       } else if ( img ) {
           return `${ s3_url }/uploads/estudios/${idEstudio}/${ tipo }/${id}/${dir}/${ img }`;
       }
     }else{
       if ( !img ) {
-            return `${ base_url }/upload/${tipo}/no-image`;
+            return `${ base_url }/uploads/${tipo}/no-image`;
         } else if ( img.includes('https') ) {
             return img;
         } else if ( img ) {
             return `${ s3_url }/uploads/${ tipo }/${id}/${dir}/${ img }`;
         } else {
-            return  `${ base_url }/upload/${tipo}/no-image`;
+            return  `${ base_url }/uploads/${tipo}/no-image`;
         }
     }
   }

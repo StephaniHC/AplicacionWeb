@@ -49,7 +49,6 @@ export class UsuariosComponent implements OnInit, OnDestroy {
     this.cargando = true;
     this.usuarioService.cargarUsuarios( this.desde, this.entrada, this.role, this.estado,this.sort)
       .subscribe( ({ total, usuarios }) => {
-        console.log(usuarios);
 
         this.totalUsuarios = total;
         this.usuarios = usuarios;
@@ -125,8 +124,6 @@ export class UsuariosComponent implements OnInit, OnDestroy {
   }
 
   cambiarEstado( usuario:Usuario ) {
-    console.log('usuario');
-    console.log(usuario);
 
     this.usuarioService.guardarUsuario( usuario )
       .subscribe( resp => {
