@@ -13,8 +13,12 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
 
 import { BusquedaComponent } from './busqueda/busqueda.component';
+<<<<<<< HEAD
 import { AdminGuard } from '../guards/admin.guard'; 
 import { DenunciasComponent } from './mantenimientos/denuncias/denuncias.component'; 
+=======
+import { AdminGuard } from '../guards/admin.guard';
+>>>>>>> fe6cbd01252d700c8ce887366cba71b87e43f895
 import { RegisterOficialComponent } from './mantenimientos/usuarios/register_oficial.component';
 
 
@@ -32,7 +36,10 @@ const childRoutes: Routes = [
 
   // Rutas de Admin
   { path: 'usuarios', canActivate: [ AdminGuard ], component: UsuariosComponent, data: { titulo: 'Matenimiento de Usuarios' }},
+<<<<<<< HEAD
   { path: 'denuncias', canActivate: [ AdminGuard ], component: DenunciasComponent, data: { titulo: 'Matenimiento de Denuncia' }},
+=======
+>>>>>>> fe6cbd01252d700c8ce887366cba71b87e43f895
   { path: 'oficial', canActivate: [ AdminGuard ], component: RegisterOficialComponent, data: { titulo: 'Manteniniento de Ususarios' }},
 ]
 

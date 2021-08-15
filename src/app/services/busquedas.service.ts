@@ -5,7 +5,10 @@ import { map } from 'rxjs/operators';
 
 import { Usuario } from '../models/usuario.model';
 
+<<<<<<< HEAD
 import { Denuncia } from '../models/denuncia.model';
+=======
+>>>>>>> fe6cbd01252d700c8ce887366cba71b87e43f895
 
 const base_url = environment.base_url;
 
@@ -37,6 +40,7 @@ export class BusquedasService {
   }
 
 
+<<<<<<< HEAD
 
   private transformarDenuncia( resultados: any[] ): Denuncia[] {
 
@@ -44,6 +48,8 @@ export class BusquedasService {
       denuncia => new Denuncia(denuncia.oficial, denuncia.civil, denuncia.fecha, denuncia.calificacion, denuncia.estado )
     );
   }
+=======
+>>>>>>> fe6cbd01252d700c8ce887366cba71b87e43f895
 
   busquedaGlobal( termino: string ) {
 
@@ -67,8 +73,12 @@ export class BusquedasService {
                   case 'usuarios':
                     return this.transformarUsuarios( resp.resultados )
 
+<<<<<<< HEAD
                   case 'denuncia':
                   return this.transformarDenuncia( resp.resultados )
+=======
+
+>>>>>>> fe6cbd01252d700c8ce887366cba71b87e43f895
                   default:
                     return [];
                 }
