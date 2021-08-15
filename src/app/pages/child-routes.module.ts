@@ -10,18 +10,12 @@ import { RxjsComponent } from './rxjs/rxjs.component';
 import { PerfilComponent } from './perfil/perfil.component';
 
 // Mantenimientos
-// import { HospitalesComponent } from './mantenimientos/hospitales/hospitales.component';
-// import { MedicosComponent } from './mantenimientos/medicos/medicos.component';
-// import { MedicoComponent } from './mantenimientos/medicos/medico.component';
 import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
-import { FotografosComponent } from './mantenimientos/fotografos/fotografos.component';
-import { EstudioComponent } from './mantenimientos/estudios/estudio.component';
-import { EstudiosComponent } from './mantenimientos/estudios/estudios.component';
-import { EventosComponent } from './mantenimientos/eventos/eventos.component';
-import { EventoComponent } from './mantenimientos/eventos/evento.component';
+
 import { BusquedaComponent } from './busqueda/busqueda.component';
 import { AdminGuard } from '../guards/admin.guard'; 
-import { DenunciasComponent } from './mantenimientos/denuncias/denuncias.component';
+import { DenunciasComponent } from './mantenimientos/denuncias/denuncias.component'; 
+import { RegisterOficialComponent } from './mantenimientos/usuarios/register_oficial.component';
 
 
 const childRoutes: Routes = [
@@ -36,16 +30,10 @@ const childRoutes: Routes = [
 
   // Mantenimientos
 
-  { path: 'fotografos', component: FotografosComponent, data: { titulo: 'Matenimiento de Fotografos' }},
-  { path: 'estudios', component: EstudiosComponent, data: { titulo: 'Matenimiento de estudios' }},
-  { path: 'estudio/:id', component: EstudioComponent, data: { titulo: 'Matenimiento de estudio' }},
-
-  { path: 'eventos', component: EventosComponent, data: { titulo: 'Matenimiento de Evento' }},
-  { path: 'evento/:id', component: EventoComponent, data: { titulo: 'Matenimiento de Evento' }},
-
   // Rutas de Admin
   { path: 'usuarios', canActivate: [ AdminGuard ], component: UsuariosComponent, data: { titulo: 'Matenimiento de Usuarios' }},
   { path: 'denuncias', canActivate: [ AdminGuard ], component: DenunciasComponent, data: { titulo: 'Matenimiento de Denuncia' }},
+  { path: 'oficial', canActivate: [ AdminGuard ], component: RegisterOficialComponent, data: { titulo: 'Manteniniento de Ususarios' }},
 ]
 
 

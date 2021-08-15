@@ -18,18 +18,23 @@ import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
-// import { HospitalesComponent } from './mantenimientos/hospitales/hospitales.component';
-// // import { MedicoComponent } from './mantenimientos/medicos/medico.component';
-// import { MedicosComponent } from './mantenimientos/medicos/medicos.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
-import { FotografosComponent } from './mantenimientos/fotografos/fotografos.component';
-import { EstudiosComponent } from './mantenimientos/estudios/estudios.component';
-import { EstudioComponent } from './mantenimientos/estudios/estudio.component';
-import { EventosComponent } from './mantenimientos/eventos/eventos.component';
-import { EventoComponent } from './mantenimientos/eventos/evento.component';
+
+import { RegisterOficialComponent } from './mantenimientos/usuarios/register_oficial.component';
 
 
+import { MatSliderModule } from '@angular/material/slider';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatTabsModule} from '@angular/material/tabs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {CdkStepperModule} from '@angular/cdk/stepper';
+import {MatFormFieldModule, MatLabel} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 
 @NgModule({
@@ -43,22 +48,20 @@ import { EventoComponent } from './mantenimientos/eventos/evento.component';
     RxjsComponent,
     PerfilComponent,
     UsuariosComponent,
+    RegisterOficialComponent,
     // HospitalesComponent,
     // MedicosComponent,
     // MedicoComponent,
     BusquedaComponent,
-    FotografosComponent,
-    EstudiosComponent,
-    EstudioComponent,
-    EventosComponent,
-    EventoComponent
+
   ],
   exports: [
     DashboardComponent,
     ProgressComponent,
     Grafica1Component, 
     PagesComponent,
-    AccountSettingsComponent
+    AccountSettingsComponent,
+    RegisterOficialComponent
   ],
   imports: [
     CommonModule,
@@ -67,7 +70,21 @@ import { EventoComponent } from './mantenimientos/eventos/evento.component';
     SharedModule,
     RouterModule,
     ComponentsModule,
-    PipesModule
+    PipesModule,
+
+
+    CdkStepperModule,
+    MatStepperModule,
+    MatSliderModule,
+    MatTabsModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+
+    NgxDropzoneModule,
   ]
 })
 export class PagesModule { }

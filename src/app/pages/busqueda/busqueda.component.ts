@@ -4,7 +4,6 @@ import { BusquedasService } from '../../services/busquedas.service';
 
 
 import { Usuario } from '../../models/usuario.model';
-import { Fotografo } from '../../models/fotografo.model';
 
 @Component({
   selector: 'app-busqueda',

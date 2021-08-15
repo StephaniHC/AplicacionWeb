@@ -16,21 +16,19 @@ import { query } from '@angular/animations';
 
 const base_url = environment.base_url;
 
-declare const gapi: any;
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
 
-  public auth2: any;
+  // public auth2: any;
   public usuario: Usuario;
 
   constructor( private http: HttpClient,
                 private router: Router,
                 private ngZone: NgZone ) {
 
-    this.googleInit();
   }
 
   get token(): string {
@@ -53,20 +51,6 @@ export class UsuarioService {
     }
   }
 
-  googleInit() {
-
-    return new Promise( resolve => {
-      gapi.load('auth2', () => {
-        this.auth2 = gapi.auth2.init({
-          client_id: '1045072534136-oqkjcjvo449uls0bttgvl3aejelh22f5.apps.googleusercontent.com',
-          cookiepolicy: 'single_host_origin',
-        });
-
-        resolve();
-      });
-    })
-
-  }
 
   guardarLocalStorage( token: string, menu: any ) {
 
@@ -79,12 +63,12 @@ export class UsuarioService {
     localStorage.removeItem('token');
     localStorage.removeItem('menu');
 
-    this.auth2.signOut().then(() => {
+    // this.auth2.signOut().then(() => {
 
       this.ngZone.run(() => {
         this.router.navigateByUrl('/login');
       })
-    });
+    // });
 
   }
 
@@ -115,7 +99,7 @@ export class UsuarioService {
     return this.http.post(`${ base_url }/usuarios`, formData )
               .pipe(
                 tap( (resp: any) => {
-                  this.guardarLocalStorage( resp.token, resp.menu );
+                  // this.guardarLocalStorage( resp.token, resp.menu );
                 })
               )
 

@@ -5,8 +5,6 @@ import { map } from 'rxjs/operators';
 
 import { Usuario } from '../models/usuario.model';
 
-import { Fotografo } from '../models/fotografo.model';
-import { Evento } from '../models/evento.model';
 import { Denuncia } from '../models/denuncia.model';
 
 const base_url = environment.base_url;
@@ -39,12 +37,6 @@ export class BusquedasService {
   }
 
 
-  private transformarFotografos( resultados: any[] ): Fotografo[] {
-    return resultados;
-  }
-  private transformarEventos( resultados: any[] ): Evento[] {
-    return resultados;
-  }
 
   private transformarDenuncia( resultados: any[] ): Denuncia[] {
 
@@ -74,13 +66,6 @@ export class BusquedasService {
                 switch ( tipo ) {
                   case 'usuarios':
                     return this.transformarUsuarios( resp.resultados )
-
-
-                  case 'fotografos':
-                     return this.transformarFotografos( resp.resultados )
-
-                  case 'eventos':
-                     return this.transformarEventos( resp.resultados )
 
                   case 'denuncia':
                   return this.transformarDenuncia( resp.resultados )
