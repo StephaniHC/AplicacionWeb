@@ -24,8 +24,8 @@ export class BarraComponent {
   public barChartLegend = true;
 
   public barChartData: ChartDataSets[] = [
-    { data: [30, 59, 40, 51, 56, 35, 20], label: 'Oficial' },
-    { data: [10, 25, 50, 39, 26, 27, 10], label: 'Civil' }
+    { data: [30, 59, 40, 51, 56, 35, 20, 5], label: 'Oficial' },
+    { data: [10, 25, 50, 39, 26, 27, 10, 8], label: 'Civil' }
   ];
 
   // events

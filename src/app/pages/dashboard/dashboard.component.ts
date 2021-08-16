@@ -9,7 +9,7 @@ import { Component} from '@angular/core';
 
 export class DashboardComponent {
 
-  public labels1: string[] = ['Aceptado', 'Rechazado', 'Pendiente'];
+  public labels1: string[] = ['Aceptado', 'Pendiente', 'En Proceso'];
   public data1 = [
     [10, 15, 40],
   ];

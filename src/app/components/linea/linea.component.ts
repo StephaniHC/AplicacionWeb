@@ -9,7 +9,7 @@ import { Label, Color, BaseChartDirective } from 'ng2-charts';
 export class LineaComponent{
 
   public lineChartData: ChartDataSets[] = [
-    { data: [15, 29, 38, 40, 56, 55, 40, 5], label: 'Reportes de Transito' },
+    { data: [15, 29, 38, 40, 56, 55, 40, 13], label: 'Reportes de Transito' },
   ];
 
   public lineChartLabels: Label[] = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];

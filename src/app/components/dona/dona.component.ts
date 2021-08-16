@@ -13,7 +13,7 @@ export class DonaComponent{
 
   @Input('labels') doughnutChartLabels: Label[] = ['Label1', 'Label2', 'Label2'];
   @Input('data') doughnutChartData: MultiDataSet = [
-    [350, 450, 100],
+    [70, 20, 15],
   ];
 
   public colors: Color[] = [
